@@ -8,8 +8,11 @@ Thank you for taking the time to view my project. In this file, you will see the
 This repository facilitates a Java application that reads in a CSV file, parses the information, and sends correct records into an SQLite database. Any incorrect records will be written to a separate CSV file. Additionally, statistics on the distribution of received/successful/unsuccessful record additions will be written to a log file. Ultimately, this application was made for my Mountain State Software Solutions application around the holiday season.
 
 # Getting the Application Running
-All of the dependencies are included in the project itself, and all file directories are made relative to the project itself, so it is as simple as downloading the project, opening the program with an IDE, and running it! 
-
+All of the dependencies are included in the project itself, and all file directories are made relative to the project itself, so it is as simple as:
+  - Downloading and unzipping the project
+  - Opening the project in NetBeans (or your preferred IDE)
+  - Running the CodingChallenge.java file! (Note: it will take significantly longer to run if you haven't used Maven before, since it has to transfer the Central Repository Index and download necessary dependencies before it can run. After the first time you build the project, it shouldn't take nearly as long).
+  
 # Overview
 Overall, this project was quite simple. My approach was to use Maven (and some of its' dependencies) to create a single class program. I started the program off by instantiating/initializing anything I would need for later in the program, like a Connection object, misc. variables, objects to read and write to/from various files, etc. The actual algorithm for the reading, writing, and parsing, is no more than 25 lines of code. In those lines of code, I read in the lines until there are none left, put the incomplete records in an SCV file, and put the complete ones (adding escape characters where necessary) in an SQLite database. After that, I output the statistics to a log file. There wasn't much chance to deviate my approach besides for file structure and tools to use. However, since the scope of this program is very small, I chose to keep this in a single file, there was no need to overcomplicate it!
 
@@ -23,6 +26,7 @@ Assumptions that I made are the following:
 
 # Notes:
 - The program takes 5 seconds to complete without any database interaction, and 45 seconds with it (very specifications reliant, of course). I could not find any ways to improve the database interaction efficiency drastically, so If you come across a way please let me know! 
+- Since this is a very small program, I didn't think it was necessary to create an executable for it.
 - A small error is still in this build, where 8 of the unsuccessful records don't actually get written to the CSV file. I have looked at a lot of portions of the CSV file and SQLite database to see what the error could be, but to no avail. 
 - My time to work on this challenge is very limited due to the very busy holiday season, so I made this program as efficient and well-documented as I could given the time alloted. I hope you enjoy!
 
